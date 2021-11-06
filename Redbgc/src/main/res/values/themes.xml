@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="Theme.Default" parent="@android:style/Theme.Holo">
+        <item name="dropdownListPreferredItemHeight">48dp</item>
+
+        <item name="android:windowBackground">@drawable/pagebackground</item>
+        <item name="android:listViewStyle">@style/Widget.ListView.DefaultTheme</item>
+
+        <!-- <item name="android:spinnerStyle">@style/Widget.Spinner.Black</item> -->
+        <!-- <item name="android:spinnerDropDownItemStyle">@style/Widget.DropDownItem.Spinner.Black</item> -->
+        <!-- <item name="android:spinnerItemStyle">@style/Widget.TextView.SpinnerItem.Black</item> -->
+        <item name="android:textColor">@color/bright_foreground_dark</item>
+    </style>
+
+    <style name="Theme.NoTitle" parent="@android:style/Theme.Holo.NoActionBar">
+        <item name="dropdownListPreferredItemHeight">48dp</item>
+
+        <item name="android:windowBackground">@drawable/pagebackground</item>
+    </style>
+
+    <style name="Theme.FullScreen" parent="@android:style/Theme.Holo.NoActionBar.Fullscreen">
+        <item name="dropdownListPreferredItemHeight">48dp</item>
+
+        <item name="android:windowBackground">@drawable/pagebackground</item>
+        <item name="android:listViewStyle">@style/Widget.ListView.DefaultTheme</item>
+    </style>
+
+    <style name="Theme.FullScreen.Splash">
+        <item name="android:windowBackground">@drawable/splashscreen</item>
+    </style>
+
+</resources>

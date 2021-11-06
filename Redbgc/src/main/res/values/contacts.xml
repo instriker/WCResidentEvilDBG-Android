@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="contactEmail">support.redbgc@instriker.net</string>
+    <string name="developpedBy">Developed By : Alexandre Emond</string>
+    <string name="copyright">© Copyright 2012 Alexandre Emond</string>
+    <string name="privacy">Privacy Policy</string>
+    <string name="bggSiteLink">http://boardgamegeek.com/boardgame/79073/</string>
+    <string name="companionFacebookSiteLink">https://www.facebook.com/pages/Wise-Companion-for-Resident-Evil-Deck-Building-Game/272484696283986</string>
+    <string name="companionPrivacySiteLink">http://www.wisecompanion.com/privacy</string>
+</resources>

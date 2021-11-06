@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="mainViewModel"
+            type="com.instriker.wcre.presentation.BuildMansionViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <RelativeLayout
+            android:id="@+id/mansionheader"
+            style="@style/listGroupTitleZone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/listGroupTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Random mansion"
+                android:visibility="@{mainViewModel.isPickRandomMode}" />
+
+            <TextView
+                style="@style/listGroupTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Custom mansion"
+                android:visibility="@{mainViewModel.isGenerateMode}" />
+
+            <Button
+                android:id="@+id/goToSettings"
+                style="@style/settingsButton"
+                android:layout_width="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:onClick="@{() -> mainViewModel.changeSettings()}" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/mansionfooter"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:id="@+id/generateMansion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="@{() -> mainViewModel.generateNewMansion()}"
+                android:text="Not this one"
+                android:visibility="@{mainViewModel.isGenerateMode}" />
+
+            <Button
+                android:id="@+id/randomMansion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="@{() -> mainViewModel.pickRandomMansion()}"
+                android:text="Not this one"
+                android:visibility="@{mainViewModel.isPickRandomMode}" />
+
+            <Button
+                android:id="@+id/viewGeneratedMansion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:enabled="@{mainViewModel.generationSuccess}"
+                android:onClick="@{() -> mainViewModel.showCardList()}"
+                android:text="View cards" />
+        </LinearLayout>
+
+        <FrameLayout
+            style="@style/mainActivityLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/mansionfooter"
+            android:layout_below="@id/mansionheader">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="@{mainViewModel.generationSuccess}">
+
+                <TextView
+                    style="@style/listGroupTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@{mainViewModel.displayDetails.name}"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:visibility="@{mainViewModel.isPickRandomMode}" />
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:visibility="@{mainViewModel.displayDetails != null ? View.VISIBLE : View.GONE}">
+
+                    <include
+                        layout="@layout/mansiondetail"
+                        bind:mainViewModel="@{mainViewModel.displayDetails}" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No mansions to pick from. Please check your settings."
+                android:visibility="@{mainViewModel.isPickRandomMode &amp;&amp; !mainViewModel.generationSuccess ? View.VISIBLE : View.GONE}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Could not generate a mansion. Please check your settings."
+                android:visibility="@{!mainViewModel.isPickRandomMode &amp;&amp; !mainViewModel.generationSuccess ? View.VISIBLE : View.GONE}" />
+        </FrameLayout>
+
+    </RelativeLayout>
+</layout>

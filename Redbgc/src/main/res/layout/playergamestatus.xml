@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="mainViewModel"
+            type="com.instriker.wcre.presentation.PlayerStatusViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/titleZone"
+            style="@style/listGroupTitleZone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_vertical"
+                android:text="@{String.format(mainViewModel.isPartner ? @string/playerPartnerTitleFormat : @string/playerTitleFormat, mainViewModel.playerNumber, mainViewModel.name)}"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/boxBase"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/sectionPadding"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/healthAmountBig"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:text="@{String.format(@string/heathStatusFormat, mainViewModel.health, mainViewModel.maxHealth)}"
+                android:textColor="@{mainViewModel.healthColor}" />
+
+            <ProgressBar
+                style="@style/healthProgressBar.big"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:max="100"
+                android:progress="@{mainViewModel.healthPourcentage}"
+                bind:progressDrawableId="@{mainViewModel.healthProgressDrawable}" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include
+                    layout="@layout/playerhealthtracker"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    bind:mainViewModel="@{mainViewModel}" />
+
+                <FrameLayout
+                    style="@style/boxXp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{mainViewModel.showXP}">
+
+                    <include
+                        layout="@layout/playerxptracker"
+                        bind:mainViewModel="@{mainViewModel}" />
+                </FrameLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+</layout>

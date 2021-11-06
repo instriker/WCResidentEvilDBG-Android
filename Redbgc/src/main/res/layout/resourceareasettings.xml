@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="mainViewModel"
+            type="com.instriker.wcre.presentation.ResourceAreaSettingsViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/listGroupTitleZone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/listGroupTitle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Resource Area Settings" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/mainActivityLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/ctlUseStandardPile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@={mainViewModel.useStandardPile}"
+                android:text="Group standard piles" />
+
+            <CheckBox
+                android:id="@+id/ctlUseBasicResources"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@={mainViewModel.useBasicResources}"
+                android:text="Use basic resources" />
+
+            <CheckBox
+                android:id="@+id/CheckBox09"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@={mainViewModel.allowDuplicatePiles}"
+                android:text="Allow duplicate piles" />
+
+            <CheckBox
+                android:id="@+id/CheckBox06"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@={mainViewModel.pileWeaponsByType}"
+                android:text="Group weapons by type" />
+
+            <CheckBox
+                android:id="@+id/CheckBox05"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@={mainViewModel.allWeaponsByType}"
+                android:text="Use all weapons of same type in piles" />
+
+            <CheckBox
+                android:id="@+id/CheckBox07"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@={mainViewModel.mustTrash}"
+                android:text="Always pick a Trash action" />
+
+            <CheckBox
+                android:id="@+id/CheckBox08"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@={mainViewModel.mustExtraExplore}"
+                android:text="Always pick +X Explore(s)" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Number of piles"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/groupsPadding"
+                        android:text="@{String.format(mainViewModel.pileCount.isSingleValue ? @string/countExact : @string/countRange, mainViewModel.pileCount.minValue, mainViewModel.pileCount.maxValue)}"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+
+                <Spinner
+                    android:id="@+id/pileCountQuickSettings"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:prompt="@string/pileCountPrompt"
+                    bind:itemSource="@{mainViewModel.pileCount.choices}"
+                    bind:itemTemplate="@{@layout/simple_spinner_dropdown_item}"
+                    bind:selectedPosition="@={mainViewModel.pileCount.quickSettings}"
+                    bind:spinnerTemplate="@{@layout/simple_spinner_item}" />
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{mainViewModel.pileCount.isCustom}">
+
+                    <include
+                        layout="@layout/inputrange"
+                        bind:mainViewModel="@{mainViewModel.pileCount}" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/weaponsCountPrompt"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/groupsPadding"
+                        android:text="@{String.format(mainViewModel.weaponsCount.isSingleValue ? @string/countExact : @string/countRange, mainViewModel.weaponsCount.minValue, mainViewModel.weaponsCount.maxValue)}"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+
+                <Spinner
+                    android:id="@+id/weaponsCountQuickSettings"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:prompt="@string/weaponsCountPrompt"
+                    bind:itemSource="@{mainViewModel.weaponsCount.choices}"
+                    bind:itemTemplate="@{@layout/simple_spinner_dropdown_item}"
+                    bind:selectedPosition="@={mainViewModel.weaponsCount.quickSettings}"
+                    bind:spinnerTemplate="@{@layout/simple_spinner_item}" />
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{mainViewModel.weaponsCount.isCustom}">
+
+                    <include
+                        layout="@layout/inputrange"
+                        bind:mainViewModel="@{mainViewModel.weaponsCount}" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/actionsCountPrompt"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/groupsPadding"
+                        android:text="@{String.format(mainViewModel.actionsCount.isSingleValue ? @string/countExact : @string/countRange, mainViewModel.actionsCount.minValue, mainViewModel.actionsCount.maxValue)}"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+
+                <Spinner
+                    android:id="@+id/actionsCountQuickSettings"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:prompt="@string/actionsCountPrompt"
+                    bind:itemSource="@{mainViewModel.actionsCount.choices}"
+                    bind:itemTemplate="@{@layout/simple_spinner_dropdown_item}"
+                    bind:selectedPosition="@={mainViewModel.actionsCount.quickSettings}"
+                    bind:spinnerTemplate="@{@layout/simple_spinner_item}" />
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{mainViewModel.actionsCount.isCustom}">
+
+                    <include
+                        layout="@layout/inputrange"
+                        bind:mainViewModel="@{mainViewModel.actionsCount}" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/itemsCountPrompt"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/groupsPadding"
+                        android:text="@{String.format(mainViewModel.itemsCount.isSingleValue ? @string/countExact : @string/countRange, mainViewModel.itemsCount.minValue, mainViewModel.itemsCount.maxValue)}"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+
+                <Spinner
+                    android:id="@+id/itemsCountQuickSettings"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:prompt="@string/itemsCountPrompt"
+                    bind:itemSource="@{mainViewModel.itemsCount.choices}"
+                    bind:itemTemplate="@{@layout/simple_spinner_dropdown_item}"
+                    bind:selectedPosition="@={mainViewModel.itemsCount.quickSettings}"
+                    bind:spinnerTemplate="@{@layout/simple_spinner_item}" />
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{mainViewModel.itemsCount.isCustom}">
+
+                    <include
+                        layout="@layout/inputrange"
+                        bind:mainViewModel="@{mainViewModel.itemsCount}" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ammunitionsCountPrompt"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/groupsPadding"
+                        android:text="@{String.format(mainViewModel.ammunitionsCount.isSingleValue ? @string/countExact : @string/countRange, mainViewModel.ammunitionsCount.minValue, mainViewModel.ammunitionsCount.maxValue)}"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+
+                <Spinner
+                    android:id="@+id/ammunitionsCountQuickSettings"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:prompt="@string/ammunitionsCountPrompt"
+                    bind:itemSource="@{mainViewModel.ammunitionsCount.choices}"
+                    bind:itemTemplate="@{@layout/simple_spinner_dropdown_item}"
+                    bind:selectedPosition="@={mainViewModel.ammunitionsCount.quickSettings}"
+                    bind:spinnerTemplate="@{@layout/simple_spinner_item}" />
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{mainViewModel.ammunitionsCount.isCustom}">
+
+                    <include
+                        layout="@layout/inputrange"
+                        bind:mainViewModel="@{mainViewModel.ammunitionsCount}" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Excluded cards"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/groupsPadding"
+                        android:text="@{String.valueOf(mainViewModel.excludedCardsCount)}" />
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> mainViewModel.manageExcludedCards()}"
+                    android:text="Choose excluded cards" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

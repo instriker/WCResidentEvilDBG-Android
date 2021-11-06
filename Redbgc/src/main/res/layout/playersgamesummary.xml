@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="mainViewModel"
+            type="com.instriker.wcre.presentation.GameTrackerViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/ctlPlayer1Summary"
+                style="@style/boxDamages"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> mainViewModel.showPlayerDetail(1, false)}"
+                android:visibility="@{mainViewModel.player1.hasPlayer}">
+
+                <include
+                    layout="@layout/playergamesummary"
+                    bind:mainViewModel="@{mainViewModel.player1}" />
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/ctlPlayer1PartnerSummary"
+                style="@style/boxDamages"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> mainViewModel.showPlayerDetail(1, true)}"
+                android:visibility="@{mainViewModel.player1Partner.hasPlayer}">
+
+                <include
+                    layout="@layout/playergamesummary"
+                    bind:mainViewModel="@{mainViewModel.player1Partner}" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/ctlPlayer2Summary"
+                style="@style/boxDamages"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> mainViewModel.showPlayerDetail(2, false)}"
+                android:visibility="@{mainViewModel.player2.hasPlayer}">
+
+                <include
+                    layout="@layout/playergamesummary"
+                    bind:mainViewModel="@{mainViewModel.player2}" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/ctlPlayer2PartnerSummary"
+                style="@style/boxDamages"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> mainViewModel.showPlayerDetail(2, true)}"
+                android:visibility="@{mainViewModel.player2Partner.hasPlayer}">
+
+                <include
+                    layout="@layout/playergamesummary"
+                    bind:mainViewModel="@{mainViewModel.player2Partner}" />
+            </FrameLayout>
+
+
+
+            <FrameLayout
+                android:id="@+id/ctlPlayer3Summary"
+                style="@style/boxDamages"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> mainViewModel.showPlayerDetail(3, false)}"
+                android:visibility="@{mainViewModel.player3.hasPlayer}">
+
+                <include
+                    layout="@layout/playergamesummary"
+                    bind:mainViewModel="@{mainViewModel.player3}" />
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/ctlPlayer3PartnerSummary"
+                style="@style/boxDamages"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> mainViewModel.showPlayerDetail(3, true)}"
+                android:visibility="@{mainViewModel.player3Partner.hasPlayer}">
+
+                <include
+                    layout="@layout/playergamesummary"
+                    bind:mainViewModel="@{mainViewModel.player3Partner}" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/ctlPlayer4Summary"
+                style="@style/boxDamages"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> mainViewModel.showPlayerDetail(4, false)}"
+                android:visibility="@{mainViewModel.player4.hasPlayer}">
+
+                <include
+                    layout="@layout/playergamesummary"
+                    bind:mainViewModel="@{mainViewModel.player4}" />
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/ctlPlayer4PartnerSummary"
+                style="@style/boxDamages"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> mainViewModel.showPlayerDetail(4, true)}"
+                android:visibility="@{mainViewModel.player4Partner.hasPlayer}">
+
+                <include
+                    layout="@layout/playergamesummary"
+                    bind:mainViewModel="@{mainViewModel.player4Partner}" />
+            </FrameLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

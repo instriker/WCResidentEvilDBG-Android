@@ -1,0 +1,142 @@
+# To enable ProGuard in your project, edit project.properties
+# to define the proguard.config property as described in that file.
+#
+# Add project specific ProGuard rules here.
+# By default, the flags in this file are appended to flags specified
+# in ${sdk.dir}/tools/proguard/proguard-android.txt
+# You can edit the include path and order by changing the ProGuard
+# include property in project.properties.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# Add any project specific keep options here:
+
+-keepattributes Signature
+-dontskipnonpubliclibraryclasses
+
+#-libraryjars "C:\Program Files (x86)\Android\android-sdk\platforms\android-7\android.jar"
+-dontwarn android.support.**
+-dontwarn android.support.v4.**
+-dontwarn com.google.ads.**
+-dontwarn com.google.analytics
+-dontwarn com.google.android.gms.analytics.**
+-dontwarn com.google.analytics.tracking.**
+#-dontwarn gueei.binding.**
+
+# Hides the Note: gueei.binding.bindingProviders.AdapterViewProvider accesses a method 'getAdapter()' dynamically
+# Warning: this hides ALL Notes regarding this class. You might want to re-enable them to check the class is fine.
+-dontnote gueei.binding.bindingProviders.AdapterViewProvider
+
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
+-keep public class com.android.vending.licensing.ILicensingService
+-keep public class com.google.vending.licensing.ILicensingService
+-keep class com.google.android.gms.analytics.**
+-keep class com.google.analytics.tracking.**
+
+# Android-Binding Commands, Observables, and their containing classes
+-keep public class * {
+	public com.instriker.wcre.framework.ICommand *;
+	public com.instriker.wcre.framework.ISubject *;
+    public gueei.binding.Command *;
+    public gueei.binding.Observable *;
+    public gueei.binding.observables.* *;
+    public gueei.binding.collections.ArrayListObservable *;
+}
+
+# Android-Binding converters
+-keep public class * extends gueei.binding.Converter { 
+    public *; 
+}
+-keep public class * extends gueei.binding.app.BindingActivity { 
+    public *; 
+}
+
+# Fixes the Note: gueei.binding.validation.ModelValidator accesses a method 'Validator()' dynamically
+-keep public class gueei.binding.validation.validators.* {
+    public java.lang.Class Validator();
+}
+
+#-keep public class * extends com.instriker.wcre.framework.RedbgcViewModel { 
+#    public *; 
+#}
+
+-dontpreverify
+-repackageclasses ''
+-allowaccessmodification
+-optimizations !code/simplification/arithmetic
+-keepattributes *Annotation*
+
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+
+-keep public class * extends android.view.View {
+    public <init>(android.content.Context);
+    public <init>(android.content.Context, android.util.AttributeSet);
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+    public void set*(...);
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+-keepclassmembers class * extends android.content.Context {
+   public void *(android.view.View);
+   public void *(android.view.MenuItem);
+}
+
+-keepclassmembers class * implements android.os.Parcelable {
+    static android.os.Parcelable$Creator CREATOR;
+}
+
+-keepclassmembers class **.R$* {
+    public static <fields>;
+}
+
+-keepclassmembers class * implements java.io.Serializable {
+    static final long serialVersionUID;
+    private static final java.io.ObjectStreamField[] serialPersistentFields;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream);
+    java.lang.Object writeReplace();
+    java.lang.Object readResolve();
+}
+
+-optimizations !field/removal/writeonly,!field/marking/private,!class/merging/*,!code/allocation/variable
+
+
+# Google play Services
+
+-keep class * extends java.util.ListResourceBundle {
+    protected Object[][] getContents();
+}
+
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+    public static final *** NULL;
+}
+
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {
+    @com.google.android.gms.common.annotation.KeepName *;
+}
+
+-keepnames class * implements android.os.Parcelable {
+    public static final ** CREATOR;
+}
+
+-keep class com.android.vending.billing.**

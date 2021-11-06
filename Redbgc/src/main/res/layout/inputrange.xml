@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="mainViewModel"
+            type="com.instriker.wcre.presentation.InputRangeViewModel" />
+    </data>
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        bind:onBind="@{() -> mainViewModel.binded()}">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Min:" />
+
+            <Button
+                android:id="@+id/ctlDecMin"
+                style="@style/roundButton"
+                android:onClick="@{() -> mainViewModel.decreaseMin()}"
+                android:text="-" />
+
+            <SeekBar
+                android:id="@+id/ctlMin"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:max="@{mainViewModel.inclusiveTopLimit}"
+                android:progress="@={mainViewModel.minValue}"
+                android:secondaryProgress="@{mainViewModel.maxValue}" />
+
+            <Button
+                android:id="@+id/ctlIncMin"
+                style="@style/roundButton"
+                android:onClick="@{() -> mainViewModel.increaseMin()}"
+                android:text="+" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Max:" />
+
+            <Button
+                android:id="@+id/ctlDecMax"
+                style="@style/roundButton"
+                android:onClick="@{() -> mainViewModel.decreaseMax()}"
+                android:text="-" />
+
+            <SeekBar
+                android:id="@+id/ctlMax"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:max="@{mainViewModel.inclusiveTopLimit}"
+                android:progress="@={mainViewModel.maxValue}" />
+
+            <Button
+                android:id="@+id/ctlIncMax"
+                style="@style/roundButton"
+                android:onClick="@{() -> mainViewModel.increaseMax()}"
+                android:text="+" />
+        </TableRow>
+
+    </TableLayout>
+</layout>

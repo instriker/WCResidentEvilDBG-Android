@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="mainViewModel"
+            type="com.instriker.wcre.presentation.MainViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            style="@style/mainActivityLayoutRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                style="@style/gameSetupModeButton"
+                android:onClick="@{() -> mainViewModel.createScenario()}"
+                android:background="@drawable/btngeneratescenario"
+                android:text="Create scenario" />
+
+            <Button
+                style="@style/gameSetupModeButton"
+                android:onClick="@{() -> mainViewModel.pickRandomScenario()}"
+                android:background="@drawable/btnrandomscenario"
+                android:text="Pick random scenario" />
+
+            <Button
+                style="@style/gameSetupModeButton"
+                android:onClick="@{() -> mainViewModel.viewAllScenarios()}"
+                android:background="@drawable/btnviewscenarios"
+                android:text="List scenarios" />
+
+            <Button
+                style="@style/gameSetupModeButton"
+                android:onClick="@{() -> mainViewModel.createMansion()}"
+                android:background="@drawable/btngeneratemansion"
+                android:text="Create mansion"
+                android:textColor="@color/defaultThemeAccent" />
+
+            <Button
+                style="@style/gameSetupModeButton"
+                android:onClick="@{() -> mainViewModel.pickRandomMansion()}"
+                android:background="@drawable/btnrandommansion"
+                android:text="Pick random mansion" />
+
+            <Button
+                style="@style/gameSetupModeButton"
+                android:onClick="@{() -> mainViewModel.viewAllMansions()}"
+                android:background="@drawable/btnviewmansions"
+                android:text="List mansions" />
+
+            <Button
+                style="@style/gameSetupModeButton"
+                android:onClick="@{() -> mainViewModel.viewCustomStartingInventory()}"
+                android:background="@drawable/btncustominventory"
+                android:text="Starting inventory" />
+
+            <Button
+                style="@style/gameSetupModeButton"
+                android:onClick="@{() -> mainViewModel.viewGameTracker()}"
+                android:background="@drawable/btntrackgame"
+                android:text="Game tracker" />
+
+            <Button
+                style="@style/gameSetupModeButton"
+                android:onClick="@{() -> mainViewModel.viewTools()}"
+                android:background="@drawable/btntools"
+                android:text="Tools"
+                android:textColor="@color/defaultThemeAccent" />
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

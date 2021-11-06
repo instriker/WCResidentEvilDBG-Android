@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuSearchScenarios"
+        android:icon="@drawable/ic_menu_search"
+        android:title="@string/search_hint"></item>
+    <item
+        android:id="@+id/menuGameModeFilterScenarios"
+        android:icon="@drawable/ic_menu_filter"
+        android:title="Filter by game mode"
+        android:titleCondensed="Filter">
+        <menu>
+            <group android:checkableBehavior="none">
+                <item
+                    android:id="@+id/menuFilterGameModeAny"
+                    android:title="Any"></item>
+                <item
+                    android:id="@+id/menuFilterGameModeStory"
+                    android:title="Story Mode"></item>
+                <item
+                    android:id="@+id/menuFilterGameModeMercenary"
+                    android:title="Mercenary Mode"></item>
+                <item
+                    android:id="@+id/menuFilterGameModeVs"
+                    android:title="VS Mode"></item>
+                <item
+                    android:id="@+id/menuFilterGameModeOutbreak"
+                    android:title="Outbreak Mode"></item>
+                <item
+                    android:id="@+id/menuFilterGameModeSkillSystem"
+                    android:title="Skill system"></item>
+            </group>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/menuRate"
+        android:icon="@drawable/ic_menu_star"
+        android:title="Rate this application"
+        android:titleCondensed="Rate this app"></item>
+    <item
+        android:id="@+id/menuShare"
+        android:title="Share this application"
+        android:icon="@drawable/ic_menu_share"
+        android:titleCondensed="Share this app"></item>
+    <item
+        android:id="@+id/buyNoAds"
+        android:icon="@drawable/ic_attach_money_white_24dp"
+        android:title="@string/noads_purchase_title"></item>
+    <item
+        android:id="@+id/menuabout"
+        android:icon="@drawable/ic_menu_info_details"
+        android:title="About"></item>
+
+</menu>

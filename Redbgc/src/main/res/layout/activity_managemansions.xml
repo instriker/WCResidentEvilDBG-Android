@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.instriker.wcre.presentation.MansionViewModel" />
+
+        <variable
+            name="mainViewModel"
+            type="com.instriker.wcre.presentation.ManageMansionsViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:visibility="@{!mainViewModel.displayDetails}">
+
+            <RelativeLayout
+                style="@style/listGroupTitleZone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/listGroupTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Mansions" />
+
+                <Button
+                    android:id="@+id/goToSettings"
+                    style="@style/settingsButton"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:onClick="@{() -> mainViewModel.changeSettings()}" />
+            </RelativeLayout>
+
+            <FrameLayout
+                style="@style/mainActivityLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/emptyMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No mansions. Please check your settings."
+                    android:visibility="@{mainViewModel.isEmpty}" />
+            </FrameLayout>
+
+            <ListView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                bind:itemSource="@{mainViewModel.mansions}"
+                bind:itemTemplate="@{@layout/row_mansionsummary}"
+                bind:onItemClicked="@{(vm, index) -> mainViewModel.showMansionDetail((Integer) index)}" />
+        </LinearLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/ctlMansionDetails"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:visibility="@{mainViewModel.displayDetails}"
+            bind:currentItem="@={mainViewModel.displayingViewIndex}"
+            bind:itemSource="@{mainViewModel.mansions}"
+            bind:itemTemplate="@{@layout/mansiondetailwithheader}"
+            bind:itemTitle="@{(item) -> ((MansionViewModel) item).name.get()}">
+
+            <androidx.viewpager.widget.PagerTabStrip
+                style="@style/BottomPagerTabStrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </androidx.viewpager.widget.ViewPager>
+
+    </FrameLayout>
+</layout>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="mainViewModel"
+            type="com.instriker.wcre.presentation.PlayerStatusViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/titleXpZone"
+            style="@style/boxTitle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="XP" />
+
+        <TextView
+            android:id="@+id/characterXPTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/characterXPDecrease"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/characterXPDecrease"
+            android:layout_marginRight="@dimen/buttonMargin"
+            android:gravity="center_vertical"
+            android:text="Character XP"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Button
+            android:id="@+id/characterXPDecrease"
+            style="@style/roundButton"
+            android:layout_below="@id/titleXpZone"
+            android:layout_toRightOf="@id/characterXPTitle"
+            android:enabled="@{mainViewModel.canLoseCharacterXP}"
+            android:onClick="@{() -> mainViewModel.updateCharacterXp(-1)}"
+            android:text="-" />
+
+        <Button
+            android:id="@+id/characterXPIncrease"
+            style="@style/roundButton"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/characterXPDecrease"
+            android:enabled="@{mainViewModel.canGainCharacterXP}"
+            android:onClick="@{() -> mainViewModel.updateCharacterXp(1)}"
+            android:text="+" />
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/characterXPDecrease"
+            android:layout_alignTop="@id/characterXPDecrease"
+            android:layout_toLeftOf="@id/characterXPIncrease"
+            android:layout_toRightOf="@id/characterXPDecrease">
+
+            <TextView
+                android:id="@+id/characterXPAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@{String.valueOf(mainViewModel.characterXP)}"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/skill1XPDecrease"
+            style="@style/roundButton"
+            android:layout_alignLeft="@id/characterXPDecrease"
+            android:layout_alignRight="@id/characterXPDecrease"
+            android:layout_below="@id/characterXPDecrease"
+            android:enabled="@{safeUnbox(mainViewModel.canLoseSkillXP[0])}"
+            android:onClick="@{() -> mainViewModel.updateSkillXp(0, -1)}"
+            android:text="-" />
+
+        <Button
+            android:id="@+id/skill1XPIncrease"
+            style="@style/roundButton"
+            android:layout_alignLeft="@id/characterXPIncrease"
+            android:layout_alignRight="@id/characterXPIncrease"
+            android:layout_alignTop="@id/skill1XPDecrease"
+            android:enabled="@{safeUnbox(mainViewModel.canGainSkillXP[0])}"
+            android:onClick="@{() -> mainViewModel.updateSkillXp(0, 1)}"
+            android:text="+" />
+
+        <TextView
+            android:id="@+id/skill1XPTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/skill1XPDecrease"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/skill1XPDecrease"
+            android:gravity="center_vertical"
+            android:text="Skill 1"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/skill1XPDecrease"
+            android:layout_alignTop="@+id/skill1XPDecrease"
+            android:layout_toLeftOf="@+id/skill1XPIncrease"
+            android:layout_toRightOf="@id/skill1XPDecrease">
+
+            <TextView
+                android:id="@+id/skill1XPAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@{String.valueOf(safeUnbox(mainViewModel.skillXP[0]))}"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/skill2XPDecrease"
+            style="@style/roundButton"
+            android:layout_alignLeft="@id/characterXPDecrease"
+            android:layout_alignRight="@id/characterXPDecrease"
+            android:layout_below="@id/skill1XPDecrease"
+            android:enabled="@{safeUnbox(mainViewModel.canLoseSkillXP[1])}"
+            android:onClick="@{() -> mainViewModel.updateSkillXp(1, -1)}"
+            android:text="-"
+            android:visibility="@{!mainViewModel.isPartnerMode}" />
+
+        <Button
+            android:id="@+id/skill2XPIncrease"
+            style="@style/roundButton"
+            android:layout_alignLeft="@id/characterXPIncrease"
+            android:layout_alignRight="@id/characterXPIncrease"
+            android:layout_alignTop="@id/skill2XPDecrease"
+            android:enabled="@{safeUnbox(mainViewModel.canGainSkillXP[1])}"
+            android:onClick="@{() -> mainViewModel.updateSkillXp(1, 1)}"
+            android:text="+"
+            android:visibility="@{!mainViewModel.isPartnerMode}" />
+
+        <TextView
+            android:id="@+id/skill2XPTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/skill2XPDecrease"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/skill2XPDecrease"
+            android:gravity="center_vertical"
+            android:text="Skill 2"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:visibility="@{!mainViewModel.isPartnerMode}" />
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/skill2XPDecrease"
+            android:layout_alignTop="@+id/skill2XPDecrease"
+            android:layout_toLeftOf="@+id/skill2XPIncrease"
+            android:layout_toRightOf="@id/skill2XPDecrease"
+            android:visibility="@{!mainViewModel.isPartnerMode}">
+
+            <TextView
+                android:id="@+id/skill2XPAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@{String.valueOf(safeUnbox(mainViewModel.skillXP[1]))}"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/skill3XPDecrease"
+            style="@style/roundButton"
+            android:layout_alignLeft="@id/characterXPDecrease"
+            android:layout_alignRight="@id/characterXPDecrease"
+            android:layout_below="@id/skill2XPDecrease"
+            android:enabled="@{safeUnbox(mainViewModel.canLoseSkillXP[2])}"
+            android:onClick="@{() -> mainViewModel.updateSkillXp(2, -1)}"
+            android:text="-"
+            android:visibility="@{!mainViewModel.isPartnerMode}" />
+
+        <Button
+            android:id="@+id/skill3XPIncrease"
+            style="@style/roundButton"
+            android:layout_alignLeft="@id/characterXPIncrease"
+            android:layout_alignRight="@id/characterXPIncrease"
+            android:layout_alignTop="@id/skill3XPDecrease"
+            android:enabled="@{safeUnbox(mainViewModel.canGainSkillXP[2])}"
+            android:onClick="@{() -> mainViewModel.updateSkillXp(2, 1)}"
+            android:text="+"
+            android:visibility="@{!mainViewModel.isPartnerMode}" />
+
+        <TextView
+            android:id="@+id/skill3XPTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/skill3XPDecrease"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/skill3XPDecrease"
+            android:gravity="center_vertical"
+            android:text="Skill 3"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:visibility="@{!mainViewModel.isPartnerMode}" />
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/skill3XPDecrease"
+            android:layout_alignTop="@+id/skill3XPDecrease"
+            android:layout_toLeftOf="@+id/skill3XPIncrease"
+            android:layout_toRightOf="@id/skill3XPDecrease"
+            android:visibility="@{!mainViewModel.isPartnerMode}">
+
+            <TextView
+                android:id="@+id/skill3XPAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@{String.valueOf(safeUnbox(mainViewModel.skillXP[2]))}"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </FrameLayout>
+
+    </RelativeLayout>
+</layout>

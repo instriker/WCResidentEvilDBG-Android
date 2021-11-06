@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lint>
+    <issue id="HardcodedText" severity="informational" />
+    <issue id="IconDipSize">
+        <ignore path="res/drawable-hdpi/ic_menu_info_details.png" />
+        <ignore path="res/drawable-hdpi/ic_menu_search.png" />
+        <ignore path="res/drawable-hdpi/ic_menu_sort_alphabetically.png" />
+        <ignore path="res/drawable-mdpi/ic_menu_star.png" />
+        <ignore path="res/drawable-xhdpi/ic_menu_share.png" />
+    </issue>
+    <issue id="OnClick" severity="ignore" />
+</lint>

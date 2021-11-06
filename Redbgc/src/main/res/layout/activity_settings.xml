@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="mainViewModel"
+            type="com.instriker.wcre.presentation.SettingsViewModel" />
+    </data>
+
+    <ScrollView
+        android:id="@+id/pageScrollViewer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/pageScrollableContent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/listGroupTitleZone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/listGroupTitle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/extensions" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/mainActivityLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/ownBaseGame"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@={mainViewModel.ownedExtensions.hasBaseSet}"
+                    android:text="DBG Base Set" />
+
+                <CheckBox
+                    android:id="@+id/ownAlliance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@={mainViewModel.ownedExtensions.hasAlliance}"
+                    android:text="Alliance" />
+
+                <CheckBox
+                    android:id="@+id/ownOutbreak"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@={mainViewModel.ownedExtensions.hasOutbreak}"
+                    android:text="Outbreak" />
+
+                <CheckBox
+                    android:id="@+id/ownNightmare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@={mainViewModel.ownedExtensions.hasNightmare}"
+                    android:text="Nightmare" />
+
+                <CheckBox
+                    android:id="@+id/ownMercenaries"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@={mainViewModel.ownedExtensions.hasMercenaries}"
+                    android:text="Mercenaries" />
+
+                <CheckBox
+                    android:id="@+id/ownPromotions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@={mainViewModel.ownedExtensions.hasPromotions}"
+                    android:text="Promotion Cards" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{mainViewModel.showMansionSettings}">
+
+                <include
+                    layout="@layout/mansionsettings"
+                    bind:mainViewModel="@{mainViewModel.mansionSettings}" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{mainViewModel.showResourceAreaSettings}">
+
+                <include
+                    layout="@layout/resourceareasettings"
+                    bind:mainViewModel="@{mainViewModel.resourceAreaSettings}" />
+            </FrameLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

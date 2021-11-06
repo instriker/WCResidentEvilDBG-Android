@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="mainViewModel"
+            type="com.instriker.wcre.presentation.PileViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@{mainViewModel.isOdd ? @drawable/pile_alt_background : @drawable/pile_background}"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/cardPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:contentDescription="Photo of the card."
+            android:scaleType="centerInside"
+            android:src="@{mainViewModel.cardPhoto}" />
+
+        <TextView
+            android:id="@+id/cardTitle"
+            style="@style/cardTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cardPhoto"
+            android:layout_centerHorizontal="true"
+            android:text="@{mainViewModel.hasManyCards ? String.format(@string/cardManyTitleFormat, mainViewModel.count) : @string/empty}" />
+
+        <TextView
+            style="@style/cardReference"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cardTitle"
+            android:layout_centerHorizontal="true"
+            android:text="@{String.format(@string/pileNumberFormat, mainViewModel.pileNumber) + @string/spacer + (mainViewModel.hasSlotNumber ? String.format(@string/cardRefWithSlotFormat, mainViewModel.cardNumber, mainViewModel.slotNumber, mainViewModel.extensionName) : String.format(@string/cardRefWithoutSlotFormat, mainViewModel.cardNumber, mainViewModel.extensionName))}" />
+
+    </RelativeLayout>
+</layout>

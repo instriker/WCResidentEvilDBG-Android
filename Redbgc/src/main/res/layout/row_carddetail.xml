@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="mainViewModel"
+            type="com.instriker.wcre.presentation.CardViewModel" />
+    </data>
+
+    <RelativeLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/cardSpecialInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true">
+
+            <TextView
+                style="@style/cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/goldCostFormat, mainViewModel.cost)}"
+                android:visibility="@{mainViewModel.hasCost}" />
+
+            <TextView
+                style="@style/xpcost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/xpCostFormat, mainViewModel.xpCost)}"
+                android:visibility="@{mainViewModel.hasXpCost}" />
+
+            <TextView
+                android:id="@+id/ctlHealth"
+                style="@style/health"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/hpCostFormat, mainViewModel.health)}"
+                android:visibility="@{mainViewModel.hasHealth}" />
+
+            <TextView
+                style="@style/decorationLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ctlHealth"
+                android:text="@{String.format(@string/decorationsFormat, mainViewModel.decorations)}"
+                android:visibility="@{mainViewModel.hasDecoration}" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/cardTitle"
+            style="@style/cardTitle"
+            android:text="@{String.format(@string/cardTitleFormat, mainViewModel.name, mainViewModel.hasManyCards ? String.format(@string/cardManyTitleFormat, mainViewModel.count) : @string/empty, mainViewModel.showCardType ? String.format(@string/cardTypeFormat, mainViewModel.cardType) : @string/empty)}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@id/cardSpecialInfo" />
+
+        <TextView
+            style="@style/cardReference"
+            android:text="@{mainViewModel.hasSlotNumber ? String.format(@string/cardRefWithSlotFormat, mainViewModel.cardNumber, mainViewModel.slotNumber, mainViewModel.extensionName) : String.format(@string/cardRefWithoutSlotFormat, mainViewModel.cardNumber, mainViewModel.extensionName)}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cardTitle" />
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="onPageChangeListener" type="id" />
+    <item name="viewPagerItemPosition" type="id" />
+
+    <item name="onSpinnerSelectedItemListener" type="id" />
+    <item name="onSpinnerSelectedPositionListener" type="id" />
+</resources>
