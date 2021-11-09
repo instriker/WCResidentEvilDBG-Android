@@ -35,26 +35,6 @@
         <item name="android:textSize">20dp</item>
     </style>
 
-    <!-- See D:\Utilisateurs\Alexandre\Projets\_External\platform_frameworks_base\core\res\res\values -->
-
-
-    <!--
-          https://android.googlesource.com/platform/frameworks/base/+/refs/heads/master/core/res/res/values/themes.xml 
-    	  https://android.googlesource.com/platform/frameworks/base/+/refs/heads/master/core/res/res/values/styles.xml
-
-
-
-
-
-
-
-
-
-
-
-
-    -->
-
     <style name="Widget.TextView.DefaultTheme" parent="@android:style/Widget.TextView">
         <item name="android:textColor">@color/text_view_default_foreground</item>
         <item name="android:textColorHighlight">@color/defaultThemeAccent</item>
