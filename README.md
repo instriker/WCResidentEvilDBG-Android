@@ -1,5 +1,12 @@
 # WCResidentEvilDBG-Android
 
+## Summary
+
+This is the source code for the android application "Wise Companion: Resisdent Evil Deck Building Game" available on Google Play. 
+
+This is a companion application for people playing the orignal card game by Bandai.
+
+Resident Evil Deck Building Game is published by [Bandai](http://bandai.com/cards/), and is in no way related to Wise Companion.
 
 ## Links
 
