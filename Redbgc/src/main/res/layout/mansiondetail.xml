@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="mainViewModel"
+            type="com.instriker.wcre.presentation.MansionViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.format(@string/mansionDifficultyFormat, mainViewModel.difficulty)}"
+            android:visibility="@{mainViewModel.hasDifficulty}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.format(@string/mansionFromExtensionFormat, mainViewModel.extensionName)}"
+            android:visibility="@{mainViewModel.extensionName != null}" />
+
+        <TextView
+            style="@style/scenarioDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{mainViewModel.description}"
+            android:visibility="@{mainViewModel.description != null}" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/groupeditemsbackground"
+            android:orientation="vertical"
+            android:visibility="@{mainViewModel.generationSummary != null}">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/mansionCardsCountFormat, mainViewModel.generationSummary.totalCount)}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/mansionBossNameFormat, mainViewModel.generationSummary.bossName)}"
+                android:visibility="@{mainViewModel.generationSummary.hasBoss}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mansionNoBoss"
+                android:visibility="@{!mainViewModel.generationSummary.hasBoss}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/mansionItemsCount, mainViewModel.generationSummary.itemCount)}"
+                android:visibility="@{mainViewModel.generationSummary.itemCount != 0}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/mansionTokensCount, mainViewModel.generationSummary.tokenCount)}"
+                android:visibility="@{mainViewModel.generationSummary.tokenCount != 0}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/mansionEventsCount, mainViewModel.generationSummary.eventCount)}"
+                android:visibility="@{mainViewModel.generationSummary.eventCount != 0}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/mansionInfectedCount, mainViewModel.generationSummary.infectedCount)}"
+                android:visibility="@{mainViewModel.generationSummary.infectedCount != 0}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/mansionAvgInfectedDecorations, mainViewModel.generationSummary.avgInfectedDecorations)}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/mansionAvgInfectedHealth, mainViewModel.generationSummary.avgInfectedHealth)}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/mansionAvgInfectedDamage, mainViewModel.generationSummary.avgInfectedDamage)}" />
+        </LinearLayout>
+
+        <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="10dip"
+            android:scrollbars="none"
+            android:visibility="@{!mainViewModel.hideCardsList}"
+            bind:itemSource="@{mainViewModel.cards}"
+            bind:itemTemplate="@{@layout/row_pilesummary}"
+            bind:onItemClicked="@{(vm, index) -> mainViewModel.showCardList()}"></ListView>
+
+    </LinearLayout>
+</layout>

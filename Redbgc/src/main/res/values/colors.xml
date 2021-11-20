@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- http://developer.android.com/guide/topics/resources/color-list-resource.html -->
+
+    <color name="transparent">#00000000</color>
+
+    <color name="defaultThemeBackground">#ff000000</color>
+    <color name="defaultThemeForeground">#fffefefe</color>
+    <color name="defaultThemeAccent">#FF801010</color>
+    <color name="pile">#60000000</color>
+    <color name="pile_alt">#60801010</color>
+    <color name="gold">#ffFFC800</color>
+    <color name="decorations">#FFFF4000</color>
+    <color name="xpcost">#FFCCCCCC</color>
+
+    <color name="health_full">#FF86A820</color>
+    <color name="healthWarning">#FFFFB515</color>
+    <color name="healthDanger">#FF9C001A</color>
+
+    <color name="healBackground">#4086A820</color>
+    <color name="maxHealthBackground">#40FFB515</color>
+    <color name="damageBackground">#409C001A</color>
+    <color name="xpBackground">#40CCCCCC</color>
+
+    <color name="healBorder">@color/health_full</color>
+    <color name="maxHealthBorder">@color/healthWarning</color>
+    <color name="damageBorder">@color/healthDanger</color>
+    <color name="xpBorder">@color/xpcost</color>
+
+    <color name="dim_foreground_dark">#808080</color>
+    <color name="dim_foreground_dark_disabled">#80808080</color>
+    <color name="dim_foreground_dark_inverse">#323232</color>
+    <color name="bright_foreground_dark_inverse">#000000</color>
+    <color name="dim_foreground_dark_inverse_disabled">#80323232</color>
+    <color name="bright_foreground_dark_disabled">#80ffffff</color>
+    <color name="bright_foreground_dark">#ffffffff</color>
+
+    <color name="diagRed">#ff0000</color>
+    <color name="diagYellow">#ffff00</color>
+    <color name="diagWhite">#ffffff</color>
+    <color name="diagMagenta">#ff00ff</color>
+    <color name="diagCyan">#00ffff</color>
+
+</resources>

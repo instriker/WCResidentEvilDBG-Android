@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="trialLimitationTitle">Lite version</string>
+    <string name="trialExtensionsLimitation">Buy the full version to use more than 1 extension at the same time.</string>
+    <string name="trialGenericLimitation">Buy the full version to use this feature.</string>
+    <string name="trialTrackerLimitation">Buy the full version to track more than 1 player at the same time.</string>
+</resources>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.instriker.wcre"
+    android:installLocation="preferExternal"
+    android:versionCode="8"
+    android:versionName="3.2.3">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+
+    <supports-screens />
+
+    <application
+        android:name="com.instriker.wcre.framework.RedbgcApplication"
+        android:allowBackup="true"
+        android:allowClearUserData="true"
+        android:icon="@drawable/ic_launcher"
+        android:killAfterRestore="false"
+        android:label="@string/app_name"
+        android:restoreNeedsApplication="false"
+        android:theme="@style/Theme.Default">
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-0000000000000000~0000000000" />
+
+        <activity
+            android:name="com.instriker.wcre.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.FullScreen.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.instriker.wcre.MainActivity"
+            android:enabled="true"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.instriker.wcre.BuildMansionActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.instriker.wcre.ManageScenariosActivity"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity
+            android:name="com.instriker.wcre.ToolsActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.instriker.wcre.AboutActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.instriker.wcre.BuildResourceAreaActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.instriker.wcre.SettingsActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.instriker.wcre.GeneratedPileListActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.instriker.wcre.ExcludedResourceAreaCardsActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.instriker.wcre.ManageMansionsActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.instriker.wcre.ExcludedMansionCardsActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.instriker.wcre.ChooseCustomStartingInventoryCharacterActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.instriker.wcre.ResumeGameActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.instriker.wcre.NewGameTrackerSetupActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.instriker.wcre.GameTrackerActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+    </application>
+
+</manifest>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.instriker.wcre.presentation.PileViewModel" />
+
+        <variable
+            name="mainViewModel"
+            type="com.instriker.wcre.presentation.GeneratedPileListViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:keepScreenOn="true"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminate="true"
+            android:indeterminateOnly="true"
+            android:visibility="@{mainViewModel.isLoading}" />
+
+        <ListView
+            style="@style/Widget.ListView.Cards"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:visibility="@{!mainViewModel.isLoading &amp;&amp; !mainViewModel.displayCardDetails}"
+            bind:itemSource="@{mainViewModel.cards}"
+            bind:itemTemplate="@{@layout/row_pile}"
+            bind:onItemClicked="@{(vm, index) -> mainViewModel.showCardDetails((Integer) index)}" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/ctlCardDetails"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:visibility="@{!mainViewModel.isLoading &amp;&amp; mainViewModel.displayCardDetails}"
+            bind:currentItem="@={mainViewModel.displayingViewIndex}"
+            bind:itemSource="@{mainViewModel.cards}"
+            bind:itemTemplate="@{@layout/carddetail}"
+            bind:itemTitle="@{(item) -> ((PileViewModel) item).name.get()}">
+
+            <androidx.viewpager.widget.PagerTabStrip
+                style="@style/BottomPagerTabStrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </androidx.viewpager.widget.ViewPager>
+
+    </RelativeLayout>
+</layout>

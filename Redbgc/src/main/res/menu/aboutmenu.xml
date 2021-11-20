@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuRate"
+        android:title="Rate this application"
+        android:icon="@drawable/ic_menu_star"
+        android:titleCondensed="Rate this app"></item>
+    <item
+        android:id="@+id/menuShare"
+        android:title="Share this application"
+        android:icon="@drawable/ic_menu_share"
+        android:titleCondensed="Share this app"></item>
+    <item
+        android:id="@+id/buyNoAds"
+        android:icon="@drawable/ic_attach_money_white_24dp"
+        android:title="@string/noads_purchase_title"></item>
+</menu>

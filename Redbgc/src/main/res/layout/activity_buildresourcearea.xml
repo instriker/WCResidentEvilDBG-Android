@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="mainViewModel"
+            type="com.instriker.wcre.presentation.BuildResourceAreaViewModel"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <RelativeLayout
+            android:id="@+id/scenarioheader"
+            style="@style/listGroupTitleZone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/listGroupTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Random scenario"
+                android:visibility="@{mainViewModel.isPickRandomMode}"/>
+
+            <TextView
+                style="@style/listGroupTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Custom scenario"
+                android:visibility="@{mainViewModel.isGenerateMode}"/>
+
+            <Button
+                android:id="@+id/goToSettings"
+                style="@style/settingsButton"
+                android:layout_width="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:onClick="@{() -> mainViewModel.changeSettings()}"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/scenariofooter"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:id="@+id/generateResourceArea"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="@{() -> mainViewModel.generateNewResourceArea()}"
+                android:text="Not this one"
+                android:visibility="@{mainViewModel.isGenerateMode}"/>
+
+            <Button
+                android:id="@+id/randomScenario"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="@{() -> mainViewModel.pickRandomScenario()}"
+                android:text="Not this one"
+                android:visibility="@{mainViewModel.isPickRandomMode}"/>
+
+            <Button
+                android:id="@+id/viewGeneratedResourceArea"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:enabled="@{mainViewModel.generationSuccess}"
+                android:onClick="@{() -> mainViewModel.showCardList()}"
+                android:text="View cards"/>
+        </LinearLayout>
+
+        <FrameLayout
+            style="@style/mainActivityLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/scenariofooter"
+            android:layout_below="@id/scenarioheader">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="@{mainViewModel.generationSuccess}">
+
+                <TextView
+                    style="@style/listGroupTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@{mainViewModel.displayDetails.name}"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:visibility="@{mainViewModel.isPickRandomMode}"/>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:visibility="@{mainViewModel.displayDetails != null}">
+
+                    <ViewStub
+                        android:id="@+id/displayDetails"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:inflatedId="@+id/inflatedDisplayDetails"
+                        android:layout="@layout/scenariodetail"
+                        android:visibility="@{mainViewModel.displayDetails != null}"
+                        bind:mainViewModel="@{mainViewModel.displayDetails}"/>
+                </FrameLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No scenarios to pick from. Please check your settings."
+                android:visibility="@{mainViewModel.isPickRandomMode &amp;&amp; !mainViewModel.generationSuccess}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Could not generate a scenario. Please check your settings."
+                android:visibility="@{!mainViewModel.isPickRandomMode &amp;&amp; !mainViewModel.generationSuccess}"/>
+        </FrameLayout>
+
+    </RelativeLayout>
+</layout>

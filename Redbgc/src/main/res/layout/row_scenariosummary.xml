@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="mainViewModel"
+            type="com.instriker.wcre.presentation.ScenarioViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/listGroupTitleZone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="@{mainViewModel.hasGroupTitle}">
+
+            <TextView
+                style="@style/listGroupTitle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@{mainViewModel.groupTitle}" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/resultRowLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/itemTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{mainViewModel.name}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/gameModeFormat, mainViewModel.gameModeName)}" />
+
+            <TextView
+                style="@style/scenarioDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lines="2"
+                android:text="@{mainViewModel.description}" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

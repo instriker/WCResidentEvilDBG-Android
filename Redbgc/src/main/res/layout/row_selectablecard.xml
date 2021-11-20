@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="mainViewModel"
+            type="com.instriker.wcre.presentation.SelectableCardViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@{mainViewModel.isOdd ? @drawable/pile_alt_background : @drawable/pile_background}"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{mainViewModel.hasGroupTitle}">
+
+            <ViewStub
+                android:id="@+id/groupTitleViewStub"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inflatedId="@+id/groupTitle"
+                android:layout="@layout/cardgrouptitle"
+                android:visibility="@{mainViewModel.hasGroupTitle}"
+                bind:mainViewModel="@{mainViewModel}"/>
+        </FrameLayout>
+
+        <RelativeLayout
+            style="@style/mainActivityLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/ctlSelected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@={mainViewModel.isSelected}"/>
+
+            <include
+                layout="@layout/row_carddetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/ctlSelected"
+                bind:mainViewModel="@{mainViewModel}"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

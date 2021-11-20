@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Wise Companion: Res. Evil DBG</string>
+    <string name="version">Version : </string>
+    <string name="contact">"Contact"</string>
+    <string name="contactEmailTitle">About %s</string>
+    <string name="contactEmailIntentTitle">Send email&#8230;</string>
+    <string name="noEmailClientsInstalled">There are no email clients installed.</string>
+    <string name="buyNow">Buy now</string>
+    <string name="notNow">Not now</string>
+    <string name="settings">Settings</string>
+    <string name="extensions">Owned extensions</string>
+    <string name="mansionItemsPrompt">Items</string>
+    <string name="mansionTokensPrompt">Tokens</string>
+    <string name="eventsPrompt">Events</string>
+    <string name="infectedPrompt">Infected</string>
+    <string name="pileCountPrompt">Pile Count</string>
+    <string name="weaponsCountPrompt">Number of weapons</string>
+    <string name="itemsCountPrompt">Number of items</string>
+    <string name="ammunitionsCountPrompt">Number of ammunitions</string>
+    <string name="actionsCountPrompt">Number of actions</string>
+    <string name="piles_basic_resource_group_title">Basic Resources Piles</string>
+    <string name="piles_scenario_group_title">Scenario Piles</string>
+    <string name="scenarios_group_title">%s Scenarios</string>
+    <string name="as_extension_format">As %s</string>
+    <string name="allCards">All cards</string>
+    <string name="skillSystem">SKILL SYSTEM</string>
+    <string name="settingsSaved">Settings saved.</string>
+    <string name="settingsSaveError">An unexpected error occurred while saving your changes.</string>
+    <string name="noBrowserInstalled">There are no web browser installed</string>
+    <string name="search_hint">Search scenarios&#8230;</string>
+    <string name="shareApplicationTitle">Share with</string>
+    <string name="shareApplicationDescription">Start playing to your favorite Resident Evil Deck Building Game faster! {FacebookLink}</string>
+    <string name="gameFaqLink">http://boardgamegeek.com/filepage/99288/resident-evil-official-master-faq</string>
+    <string-array name="gameRulesLinks">
+        <item>https://www.dropbox.com/sh/91mn2xsshb4a73f/t15aYRF_JF/RE1_Rulebook.pdf</item>
+        <item>https://www.dropbox.com/sh/91mn2xsshb4a73f/xjQ1jwuRur/RE2_Rulebook.pdf</item>
+        <item>https://www.dropbox.com/sh/91mn2xsshb4a73f/EK2gDTqmi7/RE3_Rulebook.pdf</item>
+        <item>https://www.dropbox.com/sh/91mn2xsshb4a73f/gWscA2v2-A/RE4_Rulebook.pdf</item>
+        <item>https://www.dropbox.com/sh/91mn2xsshb4a73f/bHYix_sIk4/RE5_Rulebook.pdf</item>
+    </string-array>
+
+    <string name="pick_a_character">Pick Character</string>
+    <string name="pick_a_partner">Pick Partner</string>
+    <string name="cancel">Cancel</string>
+    <string name="startNewGameTitle">Track a new game</string>
+    <string name="startNewGameWarningText">Tracking a new game will delete your existing one. Are you sure you wan\'t to continue?</string>
+    <string name="startNewGameConfirm">Start new game</string>
+    <string name="startNewGameCancel">Keep actual game</string>
+    <string name="errorLoadingCards">An unexpected error occurred while loading cards.</string>
+    <string name="customMansion">Custom mansion</string>
+    <string name="customScenario">Custom scenario</string>
+    <string name="description">Description</string>
+    <string name="close">Close</string>
+
+    <string name="noads_purchase_title">Remove ads</string>
+    <string name="noads_purchase_completed">Purchase completed.</string>
+    <string name="noads_purchase_notCompleted">Purchase canceled.</string>
+
+    <string name="modifyConsent_purchase_title">Modify consent</string>
+
+    <string name="spacer"> </string>
+    <string name="empty"></string>
+
+    <string name="turnsLeftFormat">%s turns left</string>
+    <string name="totalPilesFormat">%s piles</string>
+    <string name="gameModeFormat">[%s]</string>
+    <string name="cardTypeFormat"> [%s]</string>
+    <string name="goldCostFormat">%s gold</string>
+    <string name="xpCostFormat">%s XP</string>
+    <string name="hpCostFormat">%s HP</string>
+    <string name="decorationsFormat">%s Dec</string>
+    <string name="cardRefWithSlotFormat">%1$s, slot %2$s of %3$s</string>
+    <string name="cardRefWithoutSlotFormat">%1$s of %2$s</string>
+    <string name="pileNumberFormat">%s.</string>
+
+    <string name="cardTitleFormat">%1$s%2$s%3$s</string>
+    <string name="cardManyTitleFormat">x %s</string>
+
+    <string name="countExact">%s</string>
+    <string name="countRange">%1$s-%2$s</string>
+
+    <string name="playerNumberFormat">Player %s</string>
+    <string name="playerPartnerNumberFormat">Player %s partner</string>
+
+    <string name="heathStatusFormat">%1$s/%2$s</string>
+
+    <string name="playerTitleFormat">%1$s. %2$s</string>
+    <string name="playerPartnerTitleFormat">%1$s. %2$s (Partner)</string>
+
+    <string name="skillSummaryFormat">Sk1: %1$s XP, 2: %2$s XP, 3: %3$s XP</string>
+    <string name="partnerSkillSummaryFormat">Sk1: %s XP</string>
+
+    <string name="officialMansionFormat">Official mansion of %s</string>
+    <string name="officialScenarioFormat">Official scenario of %s</string>
+    <string name="scenarioAlsoRequiresFormat">Also requires %s</string>
+    <string name="scenarioMainGameModeFormat">Main game mode : %s</string>
+
+    <string name="mansionDifficultyFormat">Difficulty : %s</string>
+    <string name="mansionFromExtensionFormat">Official mansion of %s</string>
+    <string name="mansionCardsCountFormat">%s cards</string>
+    <string name="mansionBossNameFormat">%s (Boss)</string>
+    <string name="mansionNoBoss">No Boss</string>
+    <string name="mansionItemsCount">%s Items</string>
+    <string name="mansionTokensCount">%s Tokens</string>
+    <string name="mansionEventsCount">%s Events</string>
+    <string name="mansionInfectedCount">%s Infected</string>
+    <string name="mansionAvgInfectedDecorations">%.1f avg decorations</string>
+    <string name="mansionAvgInfectedHealth">%.1f avg health</string>
+    <string name="mansionAvgInfectedDamage">%.1f avg damage</string>
+    <string name="share_this_application">Share this application</string>
+</resources>
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuSortCards"
+        android:icon="@drawable/ic_menu_sort_alphabetically"
+        android:title="Sort cards"
+        android:titleCondensed="Sort">
+        <menu>
+            <group android:checkableBehavior="none">
+                <item
+                    android:id="@+id/menuSortCardsType"
+                    android:title="By Type"></item>
+                <item
+                    android:id="@+id/menuSortCardsName"
+                    android:title="By Name"></item>
+                <item
+                    android:id="@+id/menuSortCardsNumber"
+                    android:title="By Card Number"></item>
+            </group>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/menuRate"
+        android:title="Rate this application"
+        android:icon="@drawable/ic_menu_star"
+        android:titleCondensed="Rate this app"></item>
+    <item
+        android:id="@+id/menuShare"
+        android:title="Share this application"
+        android:icon="@drawable/ic_menu_share"
+        android:titleCondensed="Share this app"></item>
+    <item
+        android:id="@+id/buyNoAds"
+        android:icon="@drawable/ic_attach_money_white_24dp"
+        android:title="@string/noads_purchase_title"></item>
+    <item
+        android:id="@+id/menuabout"
+        android:icon="@drawable/ic_menu_info_details"
+        android:title="About"></item>
+</menu>

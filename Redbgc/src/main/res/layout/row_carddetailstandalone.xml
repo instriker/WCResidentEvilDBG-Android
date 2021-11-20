@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="mainViewModel"
+            type="com.instriker.wcre.presentation.CardViewModel" />
+    </data>
+
+    <FrameLayout
+        style="@style/resultRowLayoutRoot"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            layout="@layout/row_carddetail"
+            bind:mainViewModel="@{mainViewModel}" />
+
+    </FrameLayout>
+</layout>

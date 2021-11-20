@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <stroke
+        android:width="@dimen/boxCornerStroke"
+        android:color="@color/healBorder" />
+
+    <corners android:radius="@dimen/boxCornerRadius" />
+
+    <solid android:color="@color/healBackground" />
+
+    <padding
+        android:bottom="@dimen/groupsPadding"
+        android:left="@dimen/groupsPadding"
+        android:right="@dimen/groupsPadding"
+        android:top="@dimen/groupsPadding" />
+
+</shape>

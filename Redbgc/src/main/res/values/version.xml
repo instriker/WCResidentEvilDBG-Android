@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="expectedDatabaseVersion">35</integer>
+    <string name="newVersionClose">Close</string>
+    <string name="newVersionTitle">What\'s new</string>
+    <string name="newVersionDescription">- SDKs update</string>
+</resources>

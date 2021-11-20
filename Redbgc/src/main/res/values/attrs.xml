@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ListView">
+        <attr name="itemTemplate" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="Spinner">
+        <attr name="spinnerTemplate" format="reference" />
+        <attr name="selectedPosition" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="ProgressBar">
+        <attr name="progressDrawableId" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="ViewPager">
+        <attr name="pageWidth" format="float" />
+        <attr name="itemTitle" format="string" />
+    </declare-styleable>
+
+    <attr name="dropdownListPreferredItemHeight" format="dimension" />
+</resources>

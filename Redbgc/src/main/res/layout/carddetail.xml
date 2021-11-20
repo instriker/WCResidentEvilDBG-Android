@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="mainViewModel"
+            type="com.instriker.wcre.presentation.PileViewModel" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@{mainViewModel.isOdd ? @drawable/pile_alt_background : @drawable/pile_background}"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/cardRef"
+            style="@style/cardReference"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/screenMargin"
+            android:text="@{String.format(@string/pileNumberFormat, mainViewModel.pileNumber) + @string/spacer + (mainViewModel.hasSlotNumber ? String.format(@string/cardRefWithSlotFormat, mainViewModel.cardNumber, mainViewModel.slotNumber, mainViewModel.extensionName) : String.format(@string/cardRefWithoutSlotFormat, mainViewModel.cardNumber, mainViewModel.extensionName))}" />
+
+        <TextView
+            android:id="@+id/cardTitle"
+            style="@style/cardTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/cardRef"
+            android:layout_centerHorizontal="true"
+            android:text="@{mainViewModel.hasManyCards ? String.format(@string/cardManyTitleFormat, mainViewModel.count) : @string/empty}" />
+
+        <ImageView
+            android:id="@+id/cardPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/cardTitle"
+            android:layout_centerHorizontal="true"
+            android:adjustViewBounds="true"
+            android:contentDescription="Photo of the card."
+            android:scaleType="centerInside"
+            android:src="@{mainViewModel.cardPhoto}" />
+
+    </RelativeLayout>
+</layout>

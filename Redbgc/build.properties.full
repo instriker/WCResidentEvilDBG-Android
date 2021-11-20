@@ -1,0 +1,3 @@
+config.lite=false
+build.packageName=com.instriker.wcre
+resources.app_name=Wise Companion: Res. Evil DBG

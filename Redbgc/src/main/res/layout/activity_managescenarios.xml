@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.instriker.wcre.presentation.ScenarioViewModel" />
+
+        <variable
+            name="mainViewModel"
+            type="com.instriker.wcre.presentation.ManageScenariosViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:visibility="@{!mainViewModel.displayDetails}">
+
+            <RelativeLayout
+                style="@style/listGroupTitleZone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/listGroupTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Scenarios" />
+
+                <Button
+                    android:id="@+id/goToSettings"
+                    style="@style/settingsButton"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:onClick="@{() -> mainViewModel.changeSettings()}" />
+            </RelativeLayout>
+
+            <FrameLayout
+                style="@style/mainActivityLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/emptyMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No scenarios. Please check your settings."
+                    android:visibility="@{mainViewModel.isEmpty}" />
+            </FrameLayout>
+
+            <ListView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                bind:itemSource="@{mainViewModel.scenarios}"
+                bind:itemTemplate="@{@layout/row_scenariosummary}"
+                bind:onItemClicked="@{(vm, index) -> mainViewModel.showScenarioDetail((Integer) index)}" />
+        </LinearLayout>
+
+        <!--titleField='name',width=1.0-->
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/ctlScenariosDetails"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:visibility="@{mainViewModel.displayDetails}"
+            bind:currentItem="@={mainViewModel.displayingViewIndex}"
+            bind:itemSource="@{mainViewModel.scenarios}"
+            bind:itemTemplate="@{@layout/scenariodetailwithheader}"
+            bind:itemTitle="@{(item) -> ((ScenarioViewModel) item).name.get()}">
+
+            <androidx.viewpager.widget.PagerTabStrip
+                style="@style/BottomPagerTabStrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </androidx.viewpager.widget.ViewPager>
+
+    </FrameLayout>
+</layout>

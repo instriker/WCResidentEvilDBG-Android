@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="mainViewModel"
+            type="com.instriker.wcre.presentation.NewGameTrackerSetupViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            style="@style/listGroupTitleZone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/listGroupTitle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Game Setup" />
+
+            <Button
+                android:id="@+id/goToSettings"
+                style="@style/settingsButton"
+                android:layout_width="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:onClick="@{() -> mainViewModel.changeSettings()}" />
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                style="@style/mainActivityLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/useTurnCounter"
+                    android:checked="@={mainViewModel.useTurnCounters}"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Use turn counters" />
+
+                <CheckBox
+                    android:id="@+id/partnerMode"
+                    android:checked="@={mainViewModel.partnerMode}"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Partner Mode" />
+
+                <CheckBox
+                    android:id="@+id/mustTrackSkills"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="@={mainViewModel.trackSkills}"
+                    android:text="Track Skills" />
+
+                <FrameLayout
+                    android:id="@+id/ctlPlayer1Summary"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <include
+                        layout="@layout/pickedplayersummary"
+                        bind:mainViewModel="@{mainViewModel.player1Card}" />
+                </FrameLayout>
+
+
+                <FrameLayout
+                    android:id="@+id/ctlPlayer2Summary"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <include
+                        layout="@layout/pickedplayersummary"
+                        bind:mainViewModel="@{mainViewModel.player2Card}" />
+                </FrameLayout>
+
+
+                <FrameLayout
+                    android:id="@+id/ctlPlayer3Summary"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <include
+                        layout="@layout/pickedplayersummary"
+                        bind:mainViewModel="@{mainViewModel.player3Card}" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/ctlPlayer4Summary"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <include
+                        layout="@layout/pickedplayersummary"
+                        bind:mainViewModel="@{mainViewModel.player4Card}" />
+                </FrameLayout>
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="@{mainViewModel.canStartGame}"
+                    android:onClick="@{() -> mainViewModel.startGame()}"
+                    android:text="Start Game" />
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+</layout>

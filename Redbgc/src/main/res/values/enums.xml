@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="asExtensionOrCustomChoices">
+        <item>None</item>
+        <item>All</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="pileCountChoices">
+        <item>Standard</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="scenarioCardTypeCountChoices">
+        <item>Any</item>
+        <item>None</item>
+        <item>All</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="gameModes">
+        <item>STORY MODE</item>
+        <item>MERCENARY MODE</item>
+        <item>VS MODE</item>
+        <item>OUTBREAK MODE</item>
+    </string-array>
+    <string-array name="mansionDifficulties">
+        <item>Easy Mansion</item>
+        <item>Normal Mansion</item>
+        <item>Hard Mansion</item>
+    </string-array>
+    <string-array name="cardTypes">
+        <item>Character</item>
+        <item>Infected</item>
+        <item>Infected-Boss</item>
+        <item>Event</item>
+        <item>Token</item>
+        <item>Ammunition</item>
+        <item>Weapon</item>
+        <item>Item</item>
+        <item>Action</item>
+        <item>Bonus</item>
+        <item>Item</item>
+        <item>Infected Character</item>
+        <item>Infection</item>
+        <item>Skills</item>
+    </string-array>
+</resources>

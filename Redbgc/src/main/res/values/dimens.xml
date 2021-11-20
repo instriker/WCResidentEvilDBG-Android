@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="screenMargin">8dp</dimen>
+    <dimen name="groupsPadding">6dp</dimen>
+    <dimen name="sectionPadding">10dp</dimen>
+    <dimen name="boxCornerRadius">10dp</dimen>
+    <dimen name="boxCornerStroke">1dp</dimen>
+    <dimen name="buttonMargin">2dp</dimen>
+
+    <dimen name="tinyText">10dp</dimen>
+    <dimen name="veryBigText">48dp</dimen>
+</resources>
