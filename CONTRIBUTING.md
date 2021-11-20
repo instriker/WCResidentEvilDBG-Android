@@ -41,6 +41,8 @@ GitHub provides additional document on [forking a repository](https://help.githu
 
 This project started as an experimental projects targeting the use of  [MVVM design pattern](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel). It's then has been used for other experiments, and therefore you may find many parts of the projects not following industry best practices.
 
+Sadly, we can't provide the whole code history as it was started as a personnal project and contained personnal informations. Reworking the whole history to remove this would be too much work.
+
 It's still encouraged to improve the project (adding unit tests for instance), as long as we keep the core project uniformity.
 
 Original project contributors have low times to spend on this project now, so we expect contributors to know Android Development and have a good level of autonomy.
