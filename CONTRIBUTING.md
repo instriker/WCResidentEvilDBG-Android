@@ -61,6 +61,44 @@ Local development is done using Android Studio on Windows 10.
 
 You are free to use an other environment as best fit you as long as it doesn't impact other contributers.
 
+### Core files
+
+#### RedbgcContent.sqlite
+
+Redbgc\src\main\assets\RedbgcContent.sqlite is a readonly database containing all the game metadata about the original Deck Building Card game.
+
+You can view / edit using your favorite SQLite browser
+
+When edited, expectedDatabaseVersion in Redbgc\src\main\res\values\version.xml must be updated.
+
+#### Kotlin
+
+##### Redbgc\src\main\kotlin\com\instriker\wcre\config
+
+Contains different configuration, and is usually useful to test some features in the application.
+
+##### Redbgc\src\main\kotlin\com\instriker\wcre\framework
+
+Generic code to be reused. Could have been extracted in it's own lib.
+
+##### Redbgc\src\main\kotlin\com\instriker\wcre\presentation
+
+View Models in the MVVM design pattern.¸
+
+Contains the logic of the UI and should not reference any control directly. Use Databinding to interact with the views.
+
+##### Redbgc\src\main\kotlin\com\instriker\wcre\services
+
+Differents Business Logic services that can be used to decouple data of the Presentation Layer.
+
+##### Redbgc\src\main\kotlin\com\instriker\wcre\generators
+
+Different Business Logic services aiming specialised for the different deck generators of the application.
+
+##### Redbgc\src\main\kotlin\com\instriker\wcre\repositories
+
+Data Access Layer for CRUD operations of the different DAOs.
+
 ### Local testing
 
 Since there are not automated tests, we have to do manual testing for the project. We expect that changes are tested at least on:
