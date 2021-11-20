@@ -45,6 +45,12 @@ It's still encouraged to improve the project (adding unit tests for instance), a
 
 Original project contributors have low times to spend on this project now, so we expect contributors to know Android Development and have a good level of autonomy.
 
+### Need Help?
+
+If you have project specitic questions, you can contact the project team at [support.redbgc@instriker.net](mailto:support.redbgc@instriker.net).
+
+If you have general Android development questions, try general development forums first. Original projects developers, having low time to spend on this project anymore, will most likely slow you down.
+
 ### Styleguides
 
 There is no explicit Styleguides. Simply follow project uniformity.
