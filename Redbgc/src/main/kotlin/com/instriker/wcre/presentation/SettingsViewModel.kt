@@ -71,10 +71,6 @@ class SettingsViewModel(serviceLocator: ServiceLocator) : RedbgcViewModel(servic
         super.onStop()
     }
 
-    fun getMansionSettings(): MansionSettingsViewModel {
-        return this.mansionSettings.get()!!
-    }
-
     override fun onSaveInstanceState(savedInstanceState: IStateStore) {
         savedInstanceState.putBoolean("_hasChanges", _hasChanges)
     }
