@@ -60,8 +60,8 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_version"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutines_version"
     implementation 'com.android.billingclient:billing:4.0.0'
 
     androidTestImplementation('androidx.test.espresso:espresso-core:3.4.0', {

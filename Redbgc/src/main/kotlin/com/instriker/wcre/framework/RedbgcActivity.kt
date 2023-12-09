@@ -164,6 +164,7 @@ abstract class RedbgcActivity : Activity() {
         }
     }
 
+    @Deprecated
     override fun onBackPressed() {
         var finishActivity = true
         try {
