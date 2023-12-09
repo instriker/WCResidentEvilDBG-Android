@@ -6,16 +6,15 @@ buildscript {
 
 apply plugin: 'com.android.application'
 apply plugin: "kotlin-android"
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-parcelize'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 30
-
     defaultConfig {
         applicationId "com.instriker.wcre"
         minSdkVersion 24
-        targetSdkVersion 30
+        targetSdkVersion 33
+        compileSdk 33
 
         buildFeatures{
             dataBinding = true
@@ -42,6 +41,10 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
+    buildFeatures {
+        aidl true
+    }
+    namespace 'com.instriker.wcre'
 }
 
 // https://developers.google.com/android/guides/setup
@@ -57,6 +60,8 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_version"
     implementation 'com.android.billingclient:billing:4.0.0'
 
     androidTestImplementation('androidx.test.espresso:espresso-core:3.4.0', {

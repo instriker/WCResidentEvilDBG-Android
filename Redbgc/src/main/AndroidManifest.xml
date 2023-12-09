@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.instriker.wcre"
     android:installLocation="preferExternal"
     android:versionCode="8"
     android:versionName="3.2.3">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="com.android.vending.BILLING" />
@@ -32,6 +30,7 @@
         <activity
             android:name="com.instriker.wcre.SplashActivity"
             android:screenOrientation="portrait"
+            android:exported="true"
             android:theme="@style/Theme.FullScreen.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,10 +41,10 @@
         <activity
             android:name="com.instriker.wcre.MainActivity"
             android:enabled="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.instriker.wcre.BuildMansionActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.instriker.wcre.ManageScenariosActivity"
             android:exported="false"
@@ -61,40 +60,40 @@
         </activity>
         <activity
             android:name="com.instriker.wcre.ToolsActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.instriker.wcre.AboutActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.instriker.wcre.BuildResourceAreaActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.instriker.wcre.SettingsActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.instriker.wcre.GeneratedPileListActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.instriker.wcre.ExcludedResourceAreaCardsActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.instriker.wcre.ManageMansionsActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.instriker.wcre.ExcludedMansionCardsActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.instriker.wcre.ChooseCustomStartingInventoryCharacterActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.instriker.wcre.ResumeGameActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.instriker.wcre.NewGameTrackerSetupActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.instriker.wcre.GameTrackerActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
