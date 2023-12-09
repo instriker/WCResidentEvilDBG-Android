@@ -164,7 +164,7 @@ abstract class RedbgcActivity : Activity() {
         }
     }
 
-    @Deprecated
+    @Deprecated("To be converted")
     override fun onBackPressed() {
         var finishActivity = true
         try {
