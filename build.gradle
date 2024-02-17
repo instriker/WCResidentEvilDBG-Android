@@ -2,14 +2,14 @@
 
 buildscript {
     repositories {
-        jcenter()
         mavenCentral()
         google()
     }
 
     ext {
-        kotlin_version = '1.3.41'
-        plugin_version = '7.0.3'
+        kotlin_version = '1.9.21'
+        kotlin_coroutines_version = '1.7.3'
+        plugin_version = '8.2.0'
     }
 
     dependencies {
@@ -24,14 +24,12 @@ buildscript {
 allprojects {
     buildscript {
         repositories {
-            jcenter()
             mavenCentral()
             google()
         }
     }
 
     repositories {
-        jcenter()
         mavenCentral()
         google()
     }

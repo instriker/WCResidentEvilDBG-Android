@@ -15,6 +15,7 @@ import com.instriker.wcre.services.ConsentReceivedListener
 
 import java.util.concurrent.CountDownLatch
 
+@Deprecated("To be updated to coroutine")
 class SplashActivity : Activity() {
     private val TAG = "SplashActivity"
     private val SPLASH_DISPLAY_LENGTH = 500
@@ -29,6 +30,7 @@ class SplashActivity : Activity() {
         setContentView(com.instriker.wcre.R.layout.activity_splash)
     }
 
+    @Deprecated("To be updated to coroutine")
     override fun onBackPressed() {
         this._task!!.cancel(true)
 
@@ -87,6 +89,7 @@ class SplashActivity : Activity() {
 
         private var listener: OnTaskCompleted<Boolean>? = null
 
+        @Deprecated("To be updated to coroutine")
         override fun doInBackground(vararg arg0: OnTaskCompleted<Boolean>): Boolean? {
             Log.d(TAG, "InitAppTask doInBackground starting")
 
@@ -153,6 +156,7 @@ class SplashActivity : Activity() {
             })
         }
 
+        @Deprecated("To be updated to coroutine")
         override fun onPostExecute(result: Boolean?) {
             if (this.listener != null) {
                 if (result!!) {
