@@ -2,6 +2,7 @@ package com.instriker.wcre.framework
 
 import android.os.AsyncTask
 
+@Deprecated("To be updated to coroutine")
 class BackgroundTaskPromise<TResult>(
         private val _promise: () -> TResult,
         private val _completedCallback: ((TResult) -> Unit)?,

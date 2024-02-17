@@ -15,6 +15,7 @@ import com.instriker.wcre.services.ConsentReceivedListener
 
 import java.util.concurrent.CountDownLatch
 
+@Deprecated("To be updated to coroutine")
 class SplashActivity : Activity() {
     private val TAG = "SplashActivity"
     private val SPLASH_DISPLAY_LENGTH = 500

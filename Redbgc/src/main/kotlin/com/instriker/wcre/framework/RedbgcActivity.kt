@@ -21,6 +21,7 @@ import com.instriker.wcre.services.AdsService
 import com.instriker.wcre.services.ConsentReceivedListener
 import com.instriker.wcre.services.NoAdsInAppBillingService
 
+@Deprecated("To be updated to coroutine")
 abstract class RedbgcActivity : Activity() {
     private val LogTag = "RedbgcActivity"
     private var _viewModel: RedbgcViewModel? = null
