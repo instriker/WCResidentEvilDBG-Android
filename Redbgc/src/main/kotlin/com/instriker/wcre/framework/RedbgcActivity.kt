@@ -21,6 +21,7 @@ import com.instriker.wcre.services.AdsService
 import com.instriker.wcre.services.ConsentReceivedListener
 import com.instriker.wcre.services.NoAdsInAppBillingService
 
+@Deprecated("To be updated to coroutine")
 abstract class RedbgcActivity : Activity() {
     private val LogTag = "RedbgcActivity"
     private var _viewModel: RedbgcViewModel? = null
@@ -164,6 +165,7 @@ abstract class RedbgcActivity : Activity() {
         }
     }
 
+    @Deprecated("To be converted")
     override fun onBackPressed() {
         var finishActivity = true
         try {
