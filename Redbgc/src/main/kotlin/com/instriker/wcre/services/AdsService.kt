@@ -193,7 +193,8 @@ class AdsService(private val _context: Context, private val _adUnitId: String,
         val adView = banner
         if (adView != null) {
             if (adView.adSize == null) {
-                adView.adSize = AdSize.BANNER
+                // Unexpected, just skip
+                return
             }
             if (adView.adUnitId.isNullOrEmpty()) {
                 // For now, this does't work. We always have a "Required XML attribute "adSize" was missing
